@@ -19,3 +19,14 @@ phases:
       - echo Pushing the Docker images...
       - docker push 777500896147.dkr.ecr.ap-south-1.amazonaws.com/test1:latest
       - echo Writing image definitions file...
+      - export AWS_ACCESS_KEY_ID=$ACCESS_KEY
+      - echo $AWS_ACCESS_KEY_ID
+      - export AWS_SECRET_ACCESS_KEY=$SECRET_KEY
+      - echo $AWS_SECRET_ACCESS_KEY
+      - aws sts get-caller-identity 
+      - aws eks update-kubeconfig --region ap-south-1 --name Cluster1
+      #- sed -i "s/latest/$CODEBUILD_BUILD_NUMBER/g" deployment.yml
+      - cat deployment.yml
+      - kubectl apply -f deployment.yml -n dev
+      #- kubectl apply -f ingress.yml -n dev  
+      #- printf '[{"name":"%s","imageUri":"%s"}]' $Repository_Name-$Branch_Name-container $REPOSITORY_URI:$CODEBUILD_BUILD_NUMBER > imagedefinitions.json
