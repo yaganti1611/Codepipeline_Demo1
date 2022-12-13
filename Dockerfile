@@ -14,7 +14,7 @@ RUN tar -xvf /jetty.tar.gz && rm /jetty.tar.gz && mv jetty-distribution-10.0.0.b
 WORKDIR /opt/jetty
 
 # Copying War file to desired Jetty destination
-COPY sample.war /opt/jetty/webapp/
+COPY webapp.war /opt/jetty/webapp/
 
 # Executing Jetty
 CMD ["/opt/jetty/bin/jetty.sh", "run"]
