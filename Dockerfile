@@ -1,5 +1,5 @@
-FROM alpine:latest
-FROM openjdk:11.0.13
+FROM 777500896147.dkr.ecr.ap-south-1.amazonaws.com/dockerimages:latest-alpine
+#FROM openjdk:11.0.13
 
 # Checking Java version
 RUN java -version
