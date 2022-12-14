@@ -29,7 +29,6 @@ phases:
       #- sed -i "s/latest/$CODEBUILD_BUILD_NUMBER/g" deployment.yml
       - cat deployment.yml
       - kubectl
-      - kubectl get no
       - kubectl apply -f deployment.yml 
       #- kubectl apply -f ingress.yml -n dev  
       #- printf '[{"name":"%s","imageUri":"%s"}]' $Repository_Name-$Branch_Name-container $REPOSITORY_URI:$CODEBUILD_BUILD_NUMBER > imagedefinitions.json
