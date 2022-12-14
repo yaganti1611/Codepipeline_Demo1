@@ -24,7 +24,7 @@ phases:
       - export AWS_SECRET_ACCESS_KEY=$SECRET_KEY
       - echo $AWS_SECRET_ACCESS_KEY
       - aws sts get-caller-identity 
-      - aws eks update-kubeconfig --region ap-south-1 --name Cluster1
+      #- aws eks update-kubeconfig --region ap-south-1 --name Cluster1
       #- sed -i "s/latest/$CODEBUILD_BUILD_NUMBER/g" deployment.yml
       - cat deployment.yml
       - kubectl apply -f deployment.yml 
