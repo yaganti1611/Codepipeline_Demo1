@@ -4,7 +4,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region ap-south-1 | docker login -u kandukurihemanth -p Hemanth@123
+      - aws ecr get-login-password --region ap-south-1 |  docker login --username AWS --password-stdin 777500896147.dkr.ecr.ap-south-1.amazonaws.com
       - REPOSITORY_URI=777500896147.dkr.ecr.ap-south-1.amazonaws.com/test1
   build:
     commands:
