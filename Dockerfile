@@ -1,5 +1,5 @@
-FROM alpine:latest
-#FROM openjdk:11.0.13
+FROM public.ecr.aws/p7z7y4b7/alpine:latest
+FROM public.ecr.aws/p7z7y4b7/openjdk:latest
 
 # Checking Java version
 RUN java -version
