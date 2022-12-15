@@ -31,3 +31,31 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/name: samplejava
+---
+ingress file:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: ingress-java
+  annotations:
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:805392809179:certificate/1e23fa2a-22ab-41be-828c-63836415abbb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP": 80}]'
+    alb.ingress.kubernetes.io/subnets: subnet-07e96ff34c62a1dbb, subnet-09a4468ae907d12c8, subnet-00f8c18d3230944ac
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: servicejavamodule
+              port:
+                number: 8080
