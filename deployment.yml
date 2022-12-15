@@ -16,7 +16,7 @@ spec:
       containers:
       - 777500896147.dkr.ecr.ap-south-1.amazonaws.com/test1:latest
         imagePullPolicy: Always
-        name: samplejava
+        name: sample-java-container
         ports:
         - containerPort: 80
 ---
