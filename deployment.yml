@@ -14,11 +14,9 @@ spec:
         app.kubernetes.io/name: samplejava
     spec:
       containers:
-      - name: sample-java-container
-      - image: 896147.dkr.ecr.ap-south-1.amazonaws.com/test1:latest
+      - image: 777500896147.dkr.ecr.ap-south-1.amazonaws.com/test1:latest
         ports:
         - containerPort: 80
-
 ---
 apiVersion: v1
 kind: Service
